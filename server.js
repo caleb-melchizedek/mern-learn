@@ -8,7 +8,6 @@ const app = express();
 
 //bodyParser Middleware
 app.use(bodyParser.json())
-
 // DB Config
 const db = require ('./config/key').mongoURI;
 
@@ -16,6 +15,8 @@ const db = require ('./config/key').mongoURI;
 mongoose.connect(db, {useNewUrlParser:true,useUnifiedTopology:true}).then( ()=> console.log('MongoDB Connected...')).catch(err=> console.log(err));
 
 app.use('/api/items', items);
+
+
 
 const port =  process.env.PORT || 5000;
 
