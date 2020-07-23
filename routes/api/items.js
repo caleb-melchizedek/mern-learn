@@ -8,8 +8,7 @@ const Item = require('../../models/item');
 //@desc Get All Items
 //@Access Public
 router.get('/', (req, res)=>{
-	res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-  	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	
 	Item.find().sort({date:-1})
 	.then(items =>res.json(items))
 });
@@ -20,9 +19,7 @@ router.get('/', (req, res)=>{
 router.post('/', (req, res)=>{
 	const newItem = new Item({
 		name: req.body.name
-	})
-	res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-  	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	});
 	newItem.save().then(item => res.json(item).catch(err=>console.log(err)));
 });
 
@@ -30,8 +27,6 @@ router.post('/', (req, res)=>{
 //@desc Delete an Item 
 //@Access Public
 router.delete('/:id', (req, res)=>{
-	res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-  	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	item.findById(req.params.id)
 	.then(item=>{item.remove()
 		.then(()=>res.json({success:true}))

@@ -57,8 +57,9 @@ class ItemModal extends Component{
 						Add Item
 					</Button>
 					<Modal
-						isOpen ={this.state.modal}
-						toggle ={this.toggle}
+						isOpen = {this.state.modal}
+						toggle = {this.toggle}
+						autoFocus = {false}
 					>
 						<ModalHeader toggle	={this.toggle}>Add to Shopping List</ModalHeader>
 						<ModalBody>
@@ -70,7 +71,8 @@ class ItemModal extends Component{
 										name="name"
 										id="item"
 										placeholder="Add Shopping Item"
-										onChange={this.onChange}
+										onChange={this.onChange}	
+										autoFocus = {true}				
 									/>
 									<Button
 										color="dark"
